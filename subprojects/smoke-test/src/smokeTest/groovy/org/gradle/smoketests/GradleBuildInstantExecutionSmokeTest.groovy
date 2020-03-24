@@ -69,8 +69,8 @@ class GradleBuildInstantExecutionSmokeTest extends AbstractSmokeTest {
 
         then:
         result.output.count("Reusing instant execution cache") == 1
-        result.task(":distributions:binZip").outcome == TaskOutcome.SKIPPED
-        result.task(":core:integTest").outcome == TaskOutcome.SKIPPED
+        result.task(":distributions:binZip").outcome == TaskOutcome.UP_TO_DATE
+        result.task(":core:integTest").outcome == TaskOutcome.UP_TO_DATE
 
         when:
         run("clean")
